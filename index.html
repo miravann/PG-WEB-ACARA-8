@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 90%;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4C1D95;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4C1D95;
+            font-size: 15px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container i {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #8B5CF6;
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #4B5563;
+            background-color: #F9FAFB;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            border-color: #8B5CF6;
+            outline: none;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(109, 40, 217, 0.3);
+            background: linear-gradient(135deg, #7C3AED, #5B21B6);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        #informasi {
+            color: #DC2626;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #FEE2E2;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #E5E7EB, transparent);
+            margin: 25px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #EDE9FE, #DDD6FE);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            color: #5B21B6;
+            font-weight: 500;
+            margin-bottom: 25px;
+            border: 1px solid #E9D5FF;
+        }
+
+        .info-box i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        .info-box:hover {
+            background: linear-gradient(135deg, #DDD6FE, #C4B5FD);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            form {
+                padding: 20px;
+                width: 100%;
+            }
+
+            input[type="text"], 
+            input[type="submit"] {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .info-box {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/pgwebacara8/input.php" onsubmit="return validateForm()" method="post">
+        <h2>Form Input Kecamatan</h2>
+
+        <div class="info-box">
+            <i class="bi bi-info-circle"></i> Masukkan data wilayah dengan benar
+        </div>
+
+        <label for="kecamatan">Kecamatan:</label>
+        <div class="input-container">
+            <i class="bi bi-building"></i>
+            <input type="text" id="kecamatan" name="kecamatan" placeholder="Nama Kecamatan" />
+        </div>
+
+        <label for="luas">Luas:</label>
+        <div class="input-container">
+            <i class="bi bi-rulers"></i>
+            <input type="text" id="luas" name="luas" placeholder="Luas wilayah (km²)" />
+        </div>
+
+        <label for="jumlah_penduduk">Jumlah Penduduk:</label>
+        <div class="input-container">
+            <i class="bi bi-people"></i>
+            <input type="text" id="jumlah_penduduk" name="jumlah_penduduk" placeholder="Jumlah penduduk" />
+        </div>
+
+        <div class="divider"></div>
+
+        <label for="latitude">Latitude:</label>
+        <div class="input-container">
+            <i class="bi bi-geo-alt"></i>
+            <input type="text" id="latitude" name="latitude" placeholder="Latitude" />
+        </div>
+
+        <label for="longitude">Longitude:</label>
+        <div class="input-container">
+            <i class="bi bi-geo-alt-fill"></i>
+            <input type="text" id="longitude" name="longitude" placeholder="Longitude" />
+        </div>
+
+        <input type="submit" value="Submit" />
+
+        <p id="informasi"></p>
+    </form>
+
+    <script>
+        function validateForm() {
+            let luas = document.getElementById("luas").value;
+            let latitude = document.getElementById("latitude").value;
+            let longitude = document.getElementById("longitude").value;
+            let text = "";
+
+            if (isNaN(luas) || luas < 1) {
+                text += "Data luas harus angka dan tidak boleh bernilai negatif.<br/>";
+            }
+
+            if (isNaN(latitude) || latitude < -90 || latitude > 90) {
+                text += "Latitude harus berupa angka antara -90 dan 90.<br/>";
+            }
+
+            if (isNaN(longitude) || longitude < -180 || longitude > 180) {
+                text += "Longitude harus berupa angka antara -180 dan 180.<br/>";
+            }
+
+            if (text != "") {
+                document.getElementById("informasi").innerHTML = text;
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
